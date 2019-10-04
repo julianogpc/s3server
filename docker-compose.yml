@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  scality:
+    image: scality/s3server
+    ports:
+      - 8000:8000
+    environment:
+      - SCALITY_ACCESS_KEY_ID=SCALITY_USER
+      - SCALITY_SECRET_ACCESS_KEY=ABCDEFGHIJKLMNOPQRSTUVWXYZ
+      - LOG_LEVEL=info
+    volumes:
+      - data:/usr/src/app/localData
+      - metadata:/usr/src/app/localMetadataz
+      #- $PWD/authdata.json:/usr/src/app/conf/authdata.json
+volumes:
+  data:
+  metadata:
